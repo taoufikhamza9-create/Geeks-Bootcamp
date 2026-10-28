@@ -27,7 +27,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: 'Week 3/Day 3/ExerciseXP/pro'   # le dossier de mon site
+          path: 'Week3/Day3/ExerciseXP/pro/'   # le dossier de mon site
 
       - name: Deploy to GitHub Pages
         id: deployment
