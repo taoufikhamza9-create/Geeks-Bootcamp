@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GamersOnly- Magasin gaming</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="titre">
+      <span class="logo">🎮</span>
+      <h1>GamersOnly</h1>
+    </div>
+    <div class="zone-recherche">
+      <label for="recherche">Recherche :</label>
+      <input type="search" id="recherche" placeholder="Ex : PS5, Switch ...">
+    </div>
+  </header>
+
+  <section class="controls">
+    <button type="button" class="btn-categorie actif" data-category="Tous">Tous</button>
+    <button type="button" class="btn-categorie" data-category="Console de salon">Console de salon</button>
+    <button type="button" class="btn-categorie" data-category="Console portable">Console portable</button>
+    <button type="button" class="btn-categorie" data-category="PC Gamer">PC GAMER</button>
+    <button type="button" class="btn-categorie" data-category="Console RETRO">Console RETRO</button>
+
+    <div class="zone-tri">
+      <label for="tri">Trier :</label>
+      <select id="tri">
+        <option value="">Par défaut</option>
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+        <option value="croissant">Prix croissant</option>
+        <option value="decroissant">Prix decroissant</option>
+      </select>
+    </div>
+  </section>
+
+  <main>
+    <!-- les cartes arrivent ici avec app.js -->
+    <div id="cards-grid"></div>
+    <p id="NoElement" hidden>Aucun élément ne correspond à votre recherche 😕</p>
+  </main>
+
+  <dialog id="fenetre">
+    <div class="modal-box">
+      <button type="button" id="fermer" aria-label="Fermer">✕</button>
+      <div id="contenu-fenetre"></div>
+    </div>
+  </dialog>
+
+  <footer>
+    <p>GamersOnly © 2026 - Mini projet Geeks bootcamp</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
