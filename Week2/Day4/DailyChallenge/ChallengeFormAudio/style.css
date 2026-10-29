@@ -1,0 +1,283 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #111;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem 4rem;
+    background-color: #f5f7fa;
+    color: #111;
+}
+
+/* le nom de marque en minuscules comme sur la maquette */
+.logo {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.cart {
+    font-size: 1rem;
+}
+
+.navigation ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navigation a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+    text-decoration: underline;
+}
+
+/* hero */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background: linear-gradient(120deg, #edf1f6, #cfd7e2);
+}
+
+.hero-txt {
+    padding: 3rem 4rem;
+}
+
+.label {
+    margin: 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.4rem;
+}
+
+/* max-width pour couper le titre en 2 lignes comme sur la maquette */
+.hero h1 {
+    max-width: 6.5em;
+    margin: 1rem 0;
+    font-size: 4.5rem;
+    line-height: 1;
+}
+
+.hero-desc {
+    margin: 0 0 1.5rem;
+    font-size: 1.3rem;
+    color: #444;
+}
+
+/* le lien vers les produits ciblé avec un sélecteur d'attribut */
+.hero a[href="#product-section"] {
+    display: inline-block;
+    padding: 0.9rem 1.5rem;
+    border-radius: 6px;
+    background-color: #ff4d0d;
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero a[href="#product-section"]:hover {
+    background-color: #d93a00;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+}
+
+/* produits */
+#product-section {
+    padding: 2rem 4rem;
+}
+
+#product-section h2 {
+    margin: 0 0 1.5rem;
+    font-size: 2.5rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* nom + prix sur une ligne, description + bouton sur la suivante */
+.carte {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    padding-bottom: 1.25rem;
+    border: 1px solid #e3e7ec;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/*
+  Conflit de spécificité : .carte met un fond blanc à toutes les cartes,
+  mais je voulais un fond différent pour celle du milieu.
+  .carte:nth-child(2) est plus fort que .carte (0,1,0) donc 
+  c'est lui qui gagne peu importe l'ordre des règles.
+*/
+.carte:nth-child(2) {
+    background-color: #eef2f7;
+}
+
+/* le produit mis en avant  */
+.carte.featured {
+    border: 2px solid #ff4d0d;
+}
+
+/* toutes les images à la même taille sans les déformer */
+.carte img {
+    grid-column: 1 / 3;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.carte h3 {
+    margin: 0.5rem 0 0 1.25rem;
+    font-size: 1.3rem;
+}
+
+.prix {
+    margin: 0.5rem 1.25rem 0 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* sélecteur enfant direct pour les descriptions */
+.carte > .desc {
+    margin: 0 0 0 1.25rem;
+    color: #666;
+}
+
+.carte button {
+    margin-right: 1.25rem;
+    padding: 0.6rem 1.8rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff4d0d;
+    color: #fff;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.carte button:hover {
+    background-color: #d93a00;
+}
+
+/* footer */
+
+footer {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 4rem;
+}
+
+.brand {
+    margin: 0;
+    padding-right: 1.5rem;
+    border-right: 1px solid #111;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.slogan {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #444;
+}
+
+.foot-navigation {
+    margin-left: auto;
+}
+
+.foot-navigation ul {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.foot-navigation a {
+    color: inherit;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.foot-navigation a:hover {
+    text-decoration: underline;
+}
+
+/* tablette */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .navigation ul {
+        gap: 0.75rem 1rem;
+    }
+
+    .hero-txt,
+    #product-section {
+        padding: 2rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem 1rem;
+    }
+
+    .brand {
+        border-right: none;
+    }
+
+    .foot-navigation {
+        margin-left: 0;
+    }
+}
