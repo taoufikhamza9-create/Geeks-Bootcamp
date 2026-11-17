@@ -1,0 +1,16 @@
+{
+  "name": "math-app",
+  "version": "1.0.0",
+  "description": "Math Application",
+  "license": "ISC",
+  "author": "Hamza Taoufik",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "lodash": "^4.18.1"
+  }
+}
